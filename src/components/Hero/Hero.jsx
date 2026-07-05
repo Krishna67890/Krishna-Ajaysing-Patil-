@@ -11,7 +11,7 @@ const Hero = () => {
   const introText = `
     Welcome to the Deep Dive. I am Krishna. I build high-performance systems using React and Node.js.
     My portfolio features over 15 projects, including Samadhan Shoe Mart and Prix Robotics.
-    My mission is to push the boundaries of web interaction.
+    My goal is to push the boundaries of web interaction.
   `;
 
   const handleVoiceToggle = () => {
@@ -56,7 +56,7 @@ const Hero = () => {
                 <button
                   className={`ai-narrator-btn ${isSpeaking ? 'active' : ''}`}
                   onClick={handleVoiceToggle}
-                  onMouseEnter={() => !isSpeaking && speak("Welcome to the Deep Dive. I am Krishna. Launch the narrator to hear my mission.")}
+                  onMouseEnter={() => !isSpeaking && speak("Welcome to the Deep Dive. I am Krishna. Launch the narrator to hear my portfolio story.")}
                 >
                   <span className="ai-icon">{isSpeaking ? '⏹️' : '🎙️'}</span>
                   <span className="ai-text">{isSpeaking ? 'Stop Narrator' : 'AI Deep Dive'}</span>
