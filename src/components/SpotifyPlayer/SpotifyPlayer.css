@@ -1,0 +1,195 @@
+.spotify-floating-player {
+  position: fixed;
+  width: 340px;
+  background: rgba(18, 18, 18, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(29, 226, 125, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(29, 226, 125, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
+  user-select: none;
+}
+
+.spotify-floating-player.open {
+  animation: playerAppear 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes playerAppear {
+  from { opacity: 0; transform: scale(0.8) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.spotify-floating-player.closing {
+  opacity: 0;
+  transform: scale(0.8) translateY(20px);
+  pointer-events: none;
+}
+
+.player-header {
+  padding: 12px 16px;
+  background: rgba(29, 226, 125, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: grab;
+}
+
+.player-header:active {
+  cursor: grabbing;
+}
+
+.player-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1DB954;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.equalizer-icon {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+}
+
+.equalizer-icon span {
+  width: 2px;
+  background: #1DB954;
+  animation: equalize 1s ease-in-out infinite;
+}
+
+.equalizer-icon span:nth-child(1) { height: 60%; animation-delay: -0.2s; }
+.equalizer-icon span:nth-child(2) { height: 100%; animation-delay: -0.4s; }
+.equalizer-icon span:nth-child(3) { height: 40%; animation-delay: -0.6s; }
+
+@keyframes equalize {
+  0%, 100% { height: 40%; }
+  50% { height: 100%; }
+}
+
+.player-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.player-controls button {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.player-controls button:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.player-controls button.close-btn:hover {
+  background: #ef4444;
+}
+
+.player-content {
+  padding: 0;
+  background: #000;
+  min-height: 80px;
+}
+
+.player-footer {
+  padding: 8px;
+  text-align: center;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.spotify-floating-player.minimized {
+  height: 48px !important;
+  width: 240px !important;
+}
+
+.spotify-floating-player.maximized {
+  width: 100vw !important;
+  height: 100vh !important;
+  border-radius: 0;
+  left: 0 !important;
+  top: 0 !important;
+}
+
+/* Spotify Button in Header */
+.spotify-nav-btn {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.spotify-logo-svg {
+  width: 24px;
+  height: 24px;
+  fill: #1DB954;
+  filter: drop-shadow(0 0 5px rgba(29, 185, 84, 0.4));
+  transition: all 0.3s ease;
+}
+
+.spotify-nav-btn:hover .spotify-logo-svg {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 12px rgba(29, 185, 84, 0.8));
+}
+
+.spotify-tooltip {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  width: 180px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(29, 185, 84, 0.3);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+  z-index: 1001;
+  text-align: right;
+}
+
+.spotify-nav-btn:hover .spotify-tooltip {
+  opacity: 1;
+  transform: translateY(15px);
+}
+
+.spotify-tooltip strong {
+  display: block;
+  color: #1DB954;
+  margin-bottom: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .spotify-floating-player {
+    width: calc(100% - 40px) !important;
+    left: 20px !important;
+    bottom: 20px !important;
+    top: auto !important;
+  }
+}
