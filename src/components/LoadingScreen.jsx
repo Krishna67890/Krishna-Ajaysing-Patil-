@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './LoadingScreen.css';
+import GithubRepo from './GithubRepo/GithubRepo';
 
 // Cinematic Backgrounds (Random Mountains & Cities from Unsplash)
 const bg1 = "/bg1.png";
@@ -539,6 +540,17 @@ const LoadingScreen = ({ onFinished }) => {
       {/* Global Overlays (Pointer Events: None) */}
       <div className="noise-layer"></div>
       <div className="vignette-global"></div>
+
+      {/* GitHub Section */}
+      <div className="loading-scroll-container">
+        <div className="scroll-indicator">
+          <span>SCROLL_DOWN_FOR_REPOS</span>
+          <i className="fas fa-chevron-down"></i>
+        </div>
+        <div className="github-section-wrap">
+          <GithubRepo />
+        </div>
+      </div>
 
       {/* Global Progress Footer */}
       <div className="global-progress-footer">

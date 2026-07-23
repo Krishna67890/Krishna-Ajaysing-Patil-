@@ -42,7 +42,8 @@ const Header = ({ onOpenJourney, onOpenGame, onOpenTerminal, onOpenSpotify }) =>
     { name: 'Games', href: '#games', desc: "Play my interactive games." },
     { name: 'My Journey', action: onOpenJourney, desc: "Read about my professional path." },
     { name: 'Terminal', action: onOpenTerminal, desc: "Launch the KPR developer terminal." },
-    { name: 'Game Mode', action: onOpenGame, desc: "Enter the arcade experience." }
+    { name: 'Game Mode', action: onOpenGame, desc: "Enter the arcade experience." },
+    { name: 'Spotify Player', action: onOpenSpotify, desc: "Listen to my curated coding playlist." }
   ];
 
   const handleProjectSelect = (e) => {
@@ -119,9 +120,13 @@ const Header = ({ onOpenJourney, onOpenGame, onOpenTerminal, onOpenSpotify }) =>
             onMouseEnter={() => speak("🎵 Coding Playlist. Listen to the music I code with.")}
             aria-label="Open Spotify Playlist"
           >
-            <svg className="spotify-logo-svg" viewBox="0 0 24 24">
-              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.502 17.31c-.218.358-.684.474-1.042.256-2.87-1.752-6.485-2.15-10.74-1.174-.41.094-.82-.164-.914-.574-.094-.41.164-.82.574-.914 4.656-1.066 8.654-.614 11.865 1.344.358.218.474.684.257 1.042zm1.467-3.264c-.274.444-.852.585-1.296.31-3.284-2.016-8.29-2.6-12.176-1.42-.502.153-1.033-.13-1.186-.632-.153-.502.13-1.033.632-1.186 4.44-1.348 10.038-.684 13.816 1.63.444.274.585.852.31 1.296zm.135-3.39c-3.937-2.338-10.435-2.553-14.23-1.398-.604.184-1.246-.162-1.43-.766-.184-.604.162-1.246.766-1.43 4.354-1.322 11.532-1.066 16.06 1.62.544.323.72 1.03.397 1.574-.323.544-1.03.72-1.574.397z"/>
-            </svg>
+            <div className="spotify-icon-wrapper">
+              <svg className="spotify-logo-svg" viewBox="0 0 24 24">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.502 17.31c-.218.358-.684.474-1.042.256-2.87-1.752-6.485-2.15-10.74-1.174-.41.094-.82-.164-.914-.574-.094-.41.164-.82.574-.914 4.656-1.066 8.654-.614 11.865 1.344.358.218.474.684.257 1.042zm1.467-3.264c-.274.444-.852.585-1.296.31-3.284-2.016-8.29-2.6-12.176-1.42-.502.153-1.033-.13-1.186-.632-.153-.502.13-1.033.632-1.186 4.44-1.348 10.038-.684 13.816 1.63.444.274.585.852.31 1.296zm.135-3.39c-3.937-2.338-10.435-2.553-14.23-1.398-.604.184-1.246-.162-1.43-.766-.184-.604.162-1.246.766-1.43 4.354-1.322 11.532-1.066 16.06 1.62.544.323.72 1.03.397 1.574-.323.544-1.03.72-1.574.397z"/>
+              </svg>
+              <div className="spotify-pulse"></div>
+            </div>
+            <span className="spotify-nav-text">Music</span>
             <div className="spotify-tooltip">
               <strong>🎵 Coding Playlist</strong>
               Listen to the music I code with.
