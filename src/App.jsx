@@ -24,7 +24,7 @@ function App() {
         <LoadingScreen onFinished={handleLoadingFinished} />
       ) : (
         <>
-          <Header onOpenSpotify={() => setIsSpotifyOpen(true)} />
+          <Header onOpenSpotify={() => setIsSpotifyOpen(prev => !prev)} />
           <main>
             <Hero />
             <Projects searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
